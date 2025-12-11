@@ -16,3 +16,39 @@ Everything runs in Docker containers.
 
 ## 🏗 Project Structure
 
+vehicle-telemetry/
+├── api/
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   └── tests/
+│       └── test_api.py
+│
+├── telemetry-simulator/
+│   ├── simulator.py
+│   ├── requirements.txt
+│   └── Dockerfile
+│
+├── k8s/
+│   ├── namespace.yml
+│   ├── mongo-deployment.yml
+│   ├── mongo-service.yml
+│   ├── api-deployment.yml
+│   ├── api-service.yml
+│   └── simulator-job.yml
+│
+├── .github/
+│   └── workflows/
+│       ├── cicd.yml
+│       ├── cicd-dockerhub.yml
+│       ├── cicd-aws-ecr.yml
+│       └── cicd-gcp.yml
+│
+├── scripts/
+│   ├── kind-create-and-deploy.sh
+│   └── minikube-deploy.sh
+│
+├── docker-compose.yml
+├── README.md
+└── LICENSE (optional)
+
