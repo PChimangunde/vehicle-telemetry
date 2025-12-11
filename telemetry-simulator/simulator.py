@@ -24,8 +24,7 @@ if __name__ == "__main__":
         data = generate_payload()
         try:
             r = requests.post(API, json=data)
-            print("Sent →", data, "Status:", r.status_code)
+            print("Sent:", data, "Status:", r.status_code)
         except Exception as e:
-            print("Error sending data:", e)
+            print("Error:", e)
         time.sleep(INTERVAL)
-
