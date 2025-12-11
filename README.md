@@ -37,4 +37,35 @@ vehicle-telemetry/
 │ └── simulator-job.yml
 │
 ├── docker-compose.yml
+
+
+
+---
+
+## ▶️ Run Locally (Docker Compose)
+
+```bash
+docker compose up --build
+
+**Check health:**
+
+curl http://localhost:5000/health
+
+**Get stored telemetry:**
+
+curl http://localhost:5000/telemetry
+
+**Monitor simulator logs:**
+
+docker compose logs -f simulator
+
+---------
+
+**## ☸️ Deploy to Kubernetes**
+
+kubectl apply -f k8s/
+kubectl port-forward svc/api 5000:5000 -n vehicle-telemetry
+
+
+
 └── README.md
