@@ -1,1 +1,31 @@
-version: '3'
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: ./api
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/vehicle
+    ports:
+      - "5000:5000"
+
+  simulator:
+    build: ./telemetry-simulator
+    depends_on:
+      - api
+    environment:
+      - API_URL=http://api:5000/telemetry
+      - INTERVAL=2
+      - VEHICLE_ID=VEHICLE-001
+
+volumes:
+  mongo-data:
