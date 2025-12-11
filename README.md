@@ -1,54 +1,40 @@
-# Vehicle Telemetry – DevOps Project
+# Vehicle Telemetry — DevOps Project
 
-This project simulates automotive telemetry data (like vehicle speed, engine temperature, battery voltage, GPS) and sends it to a backend API.  
+This project simulates automotive telemetry (speed, engine temp, battery, GPS, fuel) and sends it to a backend API.  
 The backend stores the data in MongoDB.  
-Everything runs in Docker containers.
+Everything runs inside Docker containers and can be deployed to Kubernetes.
 
 ---
 
-## 🚀 Stack
-- Python Flask (API)
-- Python requests (simulator)
-- MongoDB (database)
-- Docker + Docker Compose
+## 🚗 Project Architecture
+
+Simulator → API → MongoDB  
+All running via Docker or Kubernetes.
 
 ---
 
-## 🏗 Project Structure
+## 📁 Project Structure
 
 vehicle-telemetry/
 ├── api/
-│   ├── app.py
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── tests/
-│       └── test_api.py
+│ ├── app.py
+│ ├── requirements.txt
+│ ├── Dockerfile
+│ └── tests/
+│ └── test_api.py
 │
 ├── telemetry-simulator/
-│   ├── simulator.py
-│   ├── requirements.txt
-│   └── Dockerfile
+│ ├── simulator.py
+│ ├── requirements.txt
+│ └── Dockerfile
 │
 ├── k8s/
-│   ├── namespace.yml
-│   ├── mongo-deployment.yml
-│   ├── mongo-service.yml
-│   ├── api-deployment.yml
-│   ├── api-service.yml
-│   └── simulator-job.yml
-│
-├── .github/
-│   └── workflows/
-│       ├── cicd.yml
-│       ├── cicd-dockerhub.yml
-│       ├── cicd-aws-ecr.yml
-│       └── cicd-gcp.yml
-│
-├── scripts/
-│   ├── kind-create-and-deploy.sh
-│   └── minikube-deploy.sh
+│ ├── namespace.yml
+│ ├── mongo-deployment.yml
+│ ├── mongo-service.yml
+│ ├── api-deployment.yml
+│ ├── api-service.yml
+│ └── simulator-job.yml
 │
 ├── docker-compose.yml
-├── README.md
-└── LICENSE (optional)
-
+└── README.md
