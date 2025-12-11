@@ -17,27 +17,28 @@ All running via Docker or Kubernetes.
 
 vehicle-telemetry/
 ├── api/
-│ ├── app.py
-│ ├── requirements.txt
-│ ├── Dockerfile
-│ └── tests/
-│ └── test_api.py
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   └── tests/
+│       └── test_api.py
 │
 ├── telemetry-simulator/
-│ ├── simulator.py
-│ ├── requirements.txt
-│ └── Dockerfile
+│   ├── simulator.py
+│   ├── requirements.txt
+│   └── Dockerfile
 │
 ├── k8s/
-│ ├── namespace.yml
-│ ├── mongo-deployment.yml
-│ ├── mongo-service.yml
-│ ├── api-deployment.yml
-│ ├── api-service.yml
-│ └── simulator-job.yml
+│   ├── namespace.yml
+│   ├── mongo-deployment.yml
+│   ├── mongo-service.yml
+│   ├── api-deployment.yml
+│   ├── api-service.yml
+│   └── simulator-job.yml
 │
-├── docker-compose.yml
-
+├── .github/
+│   └── workflows/
+│       ├── cicd.ym
 
 
 ---
