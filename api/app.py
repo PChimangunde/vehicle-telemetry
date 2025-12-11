@@ -24,13 +24,12 @@ def receive_telemetry():
 def get_telemetry():
     limit = int(request.args.get('limit', 50))
     docs = COL.find({}, {'_id': False}).sort('received_at', -1).limit(limit)
-    return jsonify({"data": list(docs)})
+    return jsonify({'data': list(docs)})
 
 # Health check
 @app.route('/health', methods=['GET'])
 def health():
     return jsonify({"status": "healthy"})
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
-
